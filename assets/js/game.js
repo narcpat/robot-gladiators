@@ -49,49 +49,43 @@ var fight = function(enemyName) {
     enemyName + " attacked " + playerName + ". " +playerName + " now has " + playerHealth + " health remaining."
   );
   
-  // check player's health
-  if (playerHealth <= 0) {
+    // check player's health
+    if (playerHealth <= 0) {
     window.alert(playerName + " has died!");
-  } else {
-    window.alert(playerName + " still has " + playerHealth + " health left.");
-  } 
+      break;
+    }   else {
+      window.alert(playerName + " still has " + playerHealth + " health left.");
+    } 
   
 } 
 
   // If player did not chose 1 or 2 in prompt
-  else {
-  window.alert("You need to choose a valid option. Try again!");
-  }
+    else {
+    window.alert("You need to choose a valid option. Try again!");
+    }
   } //end of while loop
 }; // end of function
 
 // run fight function to start game
-  for(var i = 0; i < enemyNames.length; i++) {
+for(var i = 0; i < enemyNames.length; i++) {
     if (playerHealth > 0) {
       window.alert("Welcome to Robot Gladiators! Round " + (i + 1 ));
-    }
 
+      // pick new enemy to fight based on index of enemyNames array
+      var pickedEnemyName = enemyNames[i];
+
+      // reset enemy health before starting new fight
+      enemyHealth = 50;
+
+      // use debugger to pause script from funning and check what's going on at the moment in the code
+      // debugger;
+
+      // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter 
+      fight(pickedEnemyName);
+    } 
+    
     else {
-      window.alert("You have lost your robot in battle! GAME OVER!");
+        window.alert("You have lost your robot in battle! GAME OVER!");
       break;
     }
-
-
-    // pick new enemy to fight based on index of enemyNames array
-    var pickedEnemyName = enemyNames[i];
-
-    // reset enemy health before starting new fight
-    enemyHealth = 50;
-
-
-
-    // use debugger to pause script from funning and check what's going on at the moment in the code
-    // debugger;
-
-    // pass the pickedEnemyName variable's value into the fight function, where it will assume the value of the enemyName parameter 
-    fight(pickedEnemyName)
-  }
-
-  
-
-    
+}
