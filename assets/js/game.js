@@ -153,16 +153,17 @@ var startGame = function () {
 
       // pass the pickedenemy.name variable's value into the fight function, where it will assume the value of the enemy.name parameter
       fight(pickedEnemyObj);
-    }
-    if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
-      // Ask player if he wants to use shop before next round
-      var storeConfirm = window.confirm(
-        "The fight is over, visit the store before the next round?"
-      );
 
-      // if yes, take them to the store() function
-      if (storeConfirm) {
-        shop();
+      if (playerInfo.health > 0 && i < enemyInfo.length - 1) {
+        // Ask player if he wants to use shop before next round
+        var storeConfirm = window.confirm(
+          "The fight is over, visit the store before the next round?"
+        );
+
+        // if yes, take them to the store() function
+        if (storeConfirm) {
+          shop();
+        }
       }
     } else {
       window.alert("You have lost your robot in battle! GAME OVER!");
